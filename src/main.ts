@@ -43,6 +43,7 @@ import vendorFlavor from "./vendor-flavor";
 import videoCard from "./videocard";
 import webglAdr from "./webgl-adr";
 import { getWebGlBasics, getWebGlExtensions } from "./webgl-fp";
+import { x64hash128 } from "./hashing";
 
 async function getResults() {
     const results = [];
@@ -102,12 +103,17 @@ let firstResult: string;
 let secondResult: string;
 
 setTimeout(async () => {
-    firstResult = JSON.stringify(await getResults(), null, 4);
+    const a = await getResults();
+    a.unshift({ hashID: x64hash128(JSON.stringify(a)) })
+    console.log(JSON.stringify(a, null, 4));
+    firstResult = JSON.stringify(a, null, 4);
     document.querySelector("#output-1")!.innerHTML = firstResult;
 }, 1000)
 
 setTimeout(async () => {
-    secondResult = JSON.stringify(await getResults(), null, 4);
+    const a = await getResults();
+    a.unshift({ hashID: x64hash128(JSON.stringify(a)) })
+    secondResult = JSON.stringify(a, null, 4);
     document.querySelector("#output-2")!.innerHTML = secondResult;
     document.querySelector("#match")!.textContent = String(JSON.stringify(secondResult) === JSON.stringify(firstResult));
 }, 5000)
