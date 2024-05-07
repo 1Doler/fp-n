@@ -199,36 +199,43 @@ export function x64hash128(input: string, seed?: number): string {
   k2[1] = 0
   const val = [0, 0]
   switch (remainder) {
+    // @ts-ignore
     case 15:
       val[1] = key[i + 14]
       x64LeftShift(val, 48)
       x64Xor(k2, val)
     // fallthrough
+    // @ts-ignore
     case 14:
       val[1] = key[i + 13]
       x64LeftShift(val, 40)
       x64Xor(k2, val)
     // fallthrough
+    // @ts-ignore
     case 13:
       val[1] = key[i + 12]
       x64LeftShift(val, 32)
       x64Xor(k2, val)
     // fallthrough
+    // @ts-ignore
     case 12:
       val[1] = key[i + 11]
       x64LeftShift(val, 24)
       x64Xor(k2, val)
     // fallthrough
+    // @ts-ignore
     case 11:
       val[1] = key[i + 10]
       x64LeftShift(val, 16)
       x64Xor(k2, val)
     // fallthrough
+    // @ts-ignore
     case 10:
       val[1] = key[i + 9]
       x64LeftShift(val, 8)
       x64Xor(k2, val)
     // fallthrough
+    // @ts-ignore
     case 9:
       val[1] = key[i + 8]
 
@@ -238,36 +245,43 @@ export function x64hash128(input: string, seed?: number): string {
       x64Multiply(k2, C1)
       x64Xor(h2, k2)
     // fallthrough
+    // @ts-ignore
     case 8:
       val[1] = key[i + 7]
       x64LeftShift(val, 56)
       x64Xor(k1, val)
     // fallthrough
+    // @ts-ignore
     case 7:
       val[1] = key[i + 6]
       x64LeftShift(val, 48)
       x64Xor(k1, val)
     // fallthrough
+    // @ts-ignore
     case 6:
       val[1] = key[i + 5]
       x64LeftShift(val, 40)
       x64Xor(k1, val)
     // fallthrough
+    // @ts-ignore
     case 5:
       val[1] = key[i + 4]
       x64LeftShift(val, 32)
       x64Xor(k1, val)
     // fallthrough
+    // @ts-ignore
     case 4:
       val[1] = key[i + 3]
       x64LeftShift(val, 24)
       x64Xor(k1, val)
     // fallthrough
+    // @ts-ignore
     case 3:
       val[1] = key[i + 2]
       x64LeftShift(val, 16)
       x64Xor(k1, val)
     // fallthrough
+    // @ts-ignore
     case 2:
       val[1] = key[i + 1]
       x64LeftShift(val, 8)

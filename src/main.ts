@@ -104,6 +104,7 @@ let secondResult: string;
 
 setTimeout(async () => {
     const a = await getResults();
+    // @ts-ignore
     a.unshift({ hashID: x64hash128(JSON.stringify(a)) })
     console.log(JSON.stringify(a, null, 4));
     firstResult = JSON.stringify(a, null, 4);
@@ -112,6 +113,7 @@ setTimeout(async () => {
 
 setTimeout(async () => {
     const a = await getResults();
+    // @ts-ignore
     a.unshift({ hashID: x64hash128(JSON.stringify(a)) })
     secondResult = JSON.stringify(a, null, 4);
     document.querySelector("#output-2")!.innerHTML = secondResult;
